@@ -244,9 +244,7 @@
   }
 
   /* THREE PATHS */
-  .paths {
-    background: var(--sand);
-  }
+  .paths { background: var(--sand); }
 
   .paths-grid {
     display: grid;
@@ -503,6 +501,87 @@
     display: block;
   }
 
+  /* BODY & SOUL */
+  .body-soul { background: var(--sand); }
+
+  .body-soul-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .body-soul-header h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--bark);
+    margin-bottom: 1rem;
+  }
+
+  .body-soul-intro {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 560px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  .body-soul-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .bs-card {
+    background: var(--cream);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bs-img-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+  }
+
+  .bs-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .bs-card:hover .bs-img-wrap img { transform: scale(1.04); }
+
+  .bs-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(61,46,34,0.18) 100%);
+  }
+
+  .bs-content { padding: 2rem 2.2rem 2.5rem; }
+
+  .bs-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .bs-content h3 {
+    font-size: 1.4rem;
+    color: var(--bark);
+    margin-bottom: 0.75rem;
+  }
+
+  .bs-content p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.85;
+  }
+
   /* EXPERIENCES */
   .experiences { background: var(--sand); }
 
@@ -553,9 +632,7 @@
   }
 
   /* RETREAT */
-  .retreat {
-    background: var(--cream);
-  }
+  .retreat { background: var(--cream); }
 
   .retreat-inner {
     display: grid;
@@ -927,18 +1004,13 @@
   }
 
   .footer-col ul { list-style: none; }
-
-  .footer-col ul li {
-    margin-bottom: 0.6rem;
-  }
-
+  .footer-col ul li { margin-bottom: 0.6rem; }
   .footer-col ul li a {
     color: rgba(247,243,238,0.55);
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.2s;
   }
-
   .footer-col ul li a:hover { color: var(--cream); }
 
   .footer-bottom {
@@ -986,7 +1058,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Taos · Tofino · Asheville</p>
+  <p class="hero-eyebrow">Santa Fe · Big Sur · Asheville</p>
   <h1>The Clearing</h1>
   <p class="hero-tagline">Unplug to Connect</p>
   <div class="hero-actions">
@@ -1004,8 +1076,8 @@
   <div class="container-narrow">
     <span class="section-eyebrow">What is The Clearing</span>
     <h2>A place where the noise stops and the thinking begins.</h2>
-    <p>The Clearing is a network of world-class natural retreat destinations — set on coastlines, in mountain meadows, and deep in forested valleys — where professional teams, curious individuals, and small groups come to do their best work and their most human living.</p>
-    <p>Each location offers exceptional lodging, family-style dining crafted from quality ingredients, guided Experiences that connect you to the land and its people, and purpose-built programming for the teams who need more than a change of scenery.</p>
+    <p>The Clearing is a network of world-class natural retreat destinations — set on coastlines, in high desert light, and deep in mountain forests — where professional teams and groups come to do their clearest thinking and most purposeful work.</p>
+    <p>Each location offers exceptional lodging, group dining crafted from quality ingredients, guided Experiences that connect teams to the land and its people, and purpose-built programming for the groups who need more than a change of scenery.</p>
     <div class="divider"></div>
     <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; color:var(--earth);">"The best conversations happen somewhere worth having them."</p>
   </div>
@@ -1022,13 +1094,13 @@
       <div class="path-card">
         <div class="path-number">01</div>
         <h3>Stay & Explore</h3>
-        <p>Come for a night or a week. Choose your landscape — mountains, coast, or old-growth forest. Sleep in a tent, an Airstream, or a private cabin. Wake up somewhere that reminds you what matters. The only agenda is yours.</p>
+        <p>Come as a team, a group, or on your own. Choose your landscape — high desert, dramatic coastline, or old-growth forest. Sleep in a tent, an Airstream, or a private cabin. Wake up somewhere that resets how you think. The only agenda is yours.</p>
         <p class="path-tagline">Your kind of away.</p>
       </div>
       <div class="path-card">
         <div class="path-number">02</div>
         <h3>Retreat & Gather</h3>
-        <p>Bring your team somewhere that does the work for you. The Clearing hosts professional groups and small conferences up to 100 attendees — with group lodges, family-style meals, guided experiences, and full event support. The offsite that actually changes something.</p>
+        <p>Bring your team somewhere that does the work for you. The Clearing hosts professional groups and small conferences up to 100 attendees — with group lodges, shared meals, guided experiences, and full event support. The offsite that actually changes something.</p>
         <p class="path-tagline">The offsite that actually changes something.</p>
       </div>
       <div class="path-card">
@@ -1049,23 +1121,23 @@
         <span class="section-eyebrow">The Locations</span>
         <h2>Three landscapes.<br>One promise.</h2>
       </div>
-      <p>Each Clearing is shaped by its place — its light, its weather, its people. The brand is the same. The experience is entirely its own.</p>
+      <p>Each Clearing is shaped by its place — its light, its terrain, its culture. The brand is the same. The experience is entirely its own.</p>
     </div>
     <div class="locations-grid">
       <div class="location-card">
-        <img class="location-img" src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80" alt="Taos, New Mexico">
+        <img class="location-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Santa Fe, New Mexico">
         <div class="location-overlay">
           <p class="location-region">New Mexico</p>
-          <p class="location-name">Taos</p>
-          <p class="location-desc">High desert mesa. Ancient sky. Infinite quiet.</p>
+          <p class="location-name">Santa Fe</p>
+          <p class="location-desc">High desert light. Ancient culture. Creative capital of the Southwest.</p>
         </div>
       </div>
       <div class="location-card">
-        <img class="location-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Tofino, BC">
+        <img class="location-img" src="https://images.unsplash.com/photo-1476158085676-e67f57ed9ed7?w=800&q=80" alt="Big Sur, California">
         <div class="location-overlay">
-          <p class="location-region">British Columbia</p>
-          <p class="location-name">Tofino</p>
-          <p class="location-desc">Wild Pacific coast. Ancient rainforest. The edge of the world.</p>
+          <p class="location-region">California</p>
+          <p class="location-name">Big Sur</p>
+          <p class="location-desc">Dramatic coastline. Redwood canyons. The edge of the continent.</p>
         </div>
       </div>
       <div class="location-card">
@@ -1084,8 +1156,8 @@
 <section class="lodging" id="stay">
   <div class="container">
     <span class="section-eyebrow">Where You'll Sleep</span>
-    <h2>Room for everyone.<br>Space for everything.</h2>
-    <p class="lodging-intro">The Clearing offers a range of lodging at every location — from genuine ground-level tent sites to private cabins and group lodges — so every guest finds their right fit.</p>
+    <h2>Room for every group.<br>Space for everything.</h2>
+    <p class="lodging-intro">The Clearing offers a range of lodging at every location — from genuine ground-level tent sites to private cabins and group lodges — so every team finds its right fit.</p>
     <div class="lodging-grid">
       <div class="lodging-item">
         <span class="lodging-icon">⛺</span>
@@ -1105,7 +1177,7 @@
         <span class="lodging-icon">🏡</span>
         <div>
           <h3>Private Cabins</h3>
-          <p>Thoughtfully designed private cabins for individuals, couples, and small families seeking more space and seclusion. The highest tier of personal lodging — and home to Forge participants during their engagement.</p>
+          <p>Thoughtfully designed private cabins for individuals and small teams seeking more space and seclusion. The highest tier of personal lodging — and home to Forge participants during their engagement.</p>
         </div>
       </div>
       <div class="lodging-item">
@@ -1126,7 +1198,7 @@
     <span class="section-eyebrow">The Airstream Fleet</span>
     <h2>An icon in every landscape.</h2>
     <p>Each Clearing location maintains a fleet of pre-installed Airstreams — styled, appointed, and positioned by The Clearing team. No towing. No setup. Just arrival.</p>
-    <p>Nestled into a Taos mesa at dusk, parked at the edge of a Tofino rainforest, tucked into the Blue Ridge hills — the Airstream is The Clearing's signature accommodation. Nostalgic, genuine, and impossible not to photograph.</p>
+    <p>Nestled into a Santa Fe mesa at dusk, perched above the Big Sur coastline, tucked into the Blue Ridge hills — the Airstream is The Clearing's signature accommodation. Nostalgic, genuine, and impossible not to photograph.</p>
   </div>
 </div>
 
@@ -1135,34 +1207,80 @@
   <div class="dining-content">
     <span class="section-eyebrow">The Table</span>
     <h2>Grounded cooking.<br>World-class meals.</h2>
-    <p>Every Clearing location has a full café and restaurant on site. The food is honest — quality ingredients, prepared with care, served family style at long tables where the conversations that matter tend to happen.</p>
-    <p>This isn't hotel catering or conference buffets. It's the kind of meal you remember. For professional groups, the table is as much a part of the retreat as the sessions. For leisure guests, it's a reason to stay another night.</p>
-    <p>Local sourcing. Seasonal menus. The same warmth in a bowl of morning porridge as in a long Friday dinner under the trees.</p>
+    <p>Every Clearing location has a full café and restaurant on site. The food is honest — quality ingredients, prepared with care, served at long communal tables where the conversations that matter tend to happen.</p>
+    <p>This isn't conference catering. It's the kind of meal that becomes part of the story your team tells when they get home. Shared plates, unhurried evenings, and the kind of nourishment that makes the next day's work feel possible.</p>
+    <p>Local sourcing. Seasonal menus. The same warmth in a bowl of morning porridge as in a long evening dinner under the open sky.</p>
   </div>
-  <img class="dining-img" src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=900&q=80" alt="Family style dining at The Clearing">
+  <img class="dining-img" src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=900&q=80" alt="Communal dining at The Clearing">
 </div>
+
+<!-- BODY & SOUL -->
+<section class="body-soul" id="body-soul">
+  <div class="container">
+    <div class="body-soul-header">
+      <span class="section-eyebrow">Body & Soul</span>
+      <h2>Every location. Every stay.</h2>
+      <p class="body-soul-intro">Clarity of mind begins in the body. Every Clearing location is equipped with three spaces designed to ground, restore, and prepare you for the work ahead.</p>
+    </div>
+    <div class="body-soul-grid">
+      <div class="bs-card">
+        <div class="bs-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" alt="Yoga Studio">
+          <div class="bs-img-overlay"></div>
+        </div>
+        <div class="bs-content">
+          <span class="bs-label">The Studio</span>
+          <h3>Yoga & Movement</h3>
+          <p>A dedicated yoga studio at every location, open for individual practice at any hour or led sessions with an on-site instructor. Natural light, considered acoustics, and a view worth holding your gaze. Whether you arrive stiff from travel or simply need to start the day right, the studio is yours.</p>
+        </div>
+      </div>
+      <div class="bs-card">
+        <div class="bs-img-wrap">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Gym">
+          <div class="bs-img-overlay"></div>
+        </div>
+        <div class="bs-content">
+          <span class="bs-label">The Gym</span>
+          <h3>Fitness & Strength</h3>
+          <p>Small but impeccably appointed. Free weights, functional training equipment, and cardio essentials — everything a serious traveler needs and nothing they don't. Designed for focus, not spectacle. The kind of gym that makes you wish your gym at home looked like this.</p>
+        </div>
+      </div>
+      <div class="bs-card">
+        <div class="bs-img-wrap">
+          <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=800&q=80" alt="Zen Garden">
+          <div class="bs-img-overlay"></div>
+        </div>
+        <div class="bs-content">
+          <span class="bs-label">The Garden</span>
+          <h3>Zen Gardens</h3>
+          <p>Each Clearing location has a Zen garden built with one purpose: quiet. Thoughtfully designed for contemplation, solitude, and the kind of unhurried thinking that doesn't happen at a desk. Come alone, stay as long as you need. Some of the best ideas at The Clearing begin here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- EXPERIENCES -->
 <section class="experiences" id="experiences">
   <div class="container">
     <span class="section-eyebrow" style="text-align:center;display:block;">The Clearing Experiences</span>
     <h2>The place is the activity.</h2>
-    <p class="experiences-intro">Every Clearing location offers a curated menu of expertly guided experiences — from a few hours to a full day. On site, or out into the surrounding landscape. Available individually or tailored for groups.</p>
+    <p class="experiences-intro">Every Clearing location offers a curated menu of expertly guided experiences — from a few hours to a full day. On site or out into the surrounding landscape. Available for individual guests or tailored for groups.</p>
     <div class="experiences-grid">
       <div class="exp-card">
         <span class="exp-icon">🌲</span>
         <h3>Nature & Land</h3>
-        <p>Guided hikes, wildlife encounters, dawn walks, and landscape explorations led by people who know the terrain the way most of us know our commute. Each location's natural world, made accessible.</p>
+        <p>Guided hikes, wildlife encounters, dawn walks, and landscape explorations led by people who know the terrain the way most of us know our commute. Each location's natural world, made fully accessible to your group.</p>
       </div>
       <div class="exp-card">
         <span class="exp-icon">🎨</span>
         <h3>Local Artisans & Culture</h3>
-        <p>Visits to local makers, craftspeople, and cultural landmarks that root The Clearing in its place. Taos's art community, Tofino's Indigenous traditions, Asheville's renowned craft scene — all within reach.</p>
+        <p>Visits to local makers, craftspeople, and cultural landmarks that root The Clearing in its place. Santa Fe's art community, Big Sur's coastal traditions, Asheville's renowned craft scene — all within reach.</p>
       </div>
       <div class="exp-card">
         <span class="exp-icon">🤝</span>
         <h3>Group Experiences</h3>
-        <p>For professional retreat groups and teams, experiences can be designed and tailored to your group's specific needs — whether that's a team-building morning or a full-day offsite capstone in the field.</p>
+        <p>For professional retreat groups and teams, experiences can be designed and tailored to your group's specific needs — whether that's a team-building morning or a full-day offsite capstone out in the field.</p>
       </div>
     </div>
   </div>
@@ -1175,8 +1293,8 @@
       <div>
         <span class="section-eyebrow">Retreat & Groups</span>
         <h2>The offsite that actually changes something.</h2>
-        <p>Most offsites change nothing. You fly somewhere, sit in a windowless room, run through slides, fly home. The Clearing is built on a different premise: that genuine removal from the environment that's burning your team out — replaced with natural beauty, shared meals, and real space to think together — produces outcomes no conference room ever will.</p>
-        <p>We host professional groups and small conferences up to 100 attendees across every location. Group lodges, family-style dining, guided experiences, and full event support. You bring the people and the agenda. The Clearing does the rest.</p>
+        <p>Most offsites change nothing. You fly somewhere, sit in a windowless room, run through slides, fly home. The Clearing is built on a different premise: that genuine removal from the environment wearing your team down — replaced with natural beauty, shared meals, and real space to think together — produces outcomes no conference room ever will.</p>
+        <p>We host professional groups and small conferences up to 100 attendees across every location. Group lodges, communal dining, guided experiences, and full event support. You bring the people and the agenda. The Clearing does the rest.</p>
         <div class="retreat-stats">
           <div class="stat">
             <div class="stat-number">100</div>
@@ -1209,7 +1327,7 @@
         <span class="section-eyebrow">The Forge</span>
         <h2>Arrive with the problem.<br>Leave with the plan.</h2>
         <p>The Forge is The Clearing's signature intensive for small teams with hard problems. Groups of 2–6 decision-makers and stakeholders work through a critical strategic challenge over multiple days — guided by The Clearing's permanent team of recognized experts in data, technology, scaling, and security.</p>
-        <p>The outcome isn't a better conversation about the problem. It's a strategic roadmap, actionable engineering direction, and design specifications ready to execute the moment you're home.</p>
+        <p>The outcome isn't a better conversation about the problem. It's a strategic roadmap, actionable engineering direction, and design specifications ready to execute the moment your team is home.</p>
         <div class="forge-pillars">
           <div class="forge-pillar">
             <div class="forge-pillar-icon">⚡</div>
@@ -1242,28 +1360,28 @@
             <div class="forge-step-num">1</div>
             <div class="forge-step-content">
               <h4>Arrive with the problem</h4>
-              <p>Your team of 2–6 arrives at The Clearing with a defined strategic challenge — a roadmap, an architecture decision, a scaling question that won't resolve in the office.</p>
+              <p>Your team of 2–6 arrives at The Clearing with a defined strategic challenge — a roadmap, an architecture decision, a scaling question that won't resolve back at the office.</p>
             </div>
           </div>
           <div class="forge-step">
             <div class="forge-step-num">2</div>
             <div class="forge-step-content">
               <h4>Work alongside the experts</h4>
-              <p>Over 3–5 days, your team works in close collaboration with The Clearing's resident experts — structured sessions, open working time, and the kind of clarity that only comes from deep focus in a beautiful place.</p>
+              <p>Over 3–5 days, your team works in close collaboration with The Clearing's resident experts — structured sessions, open working time, and the clarity that only comes from deep focus in a beautiful place.</p>
             </div>
           </div>
           <div class="forge-step">
             <div class="forge-step-num">3</div>
             <div class="forge-step-content">
               <h4>Leave with the plan</h4>
-              <p>You depart with a documented strategic roadmap, engineering specifications, and design direction — ready to hand to your team and begin building.</p>
+              <p>You depart with a documented strategic roadmap, engineering specifications, and design direction — ready to hand to your team and begin building immediately.</p>
             </div>
           </div>
           <div class="forge-step">
             <div class="forge-step-num">4</div>
             <div class="forge-step-content">
               <h4>All lodging & meals included</h4>
-              <p>Private cabin accommodation and family-style dining are included for all Forge participants throughout the engagement.</p>
+              <p>Private cabin accommodation and communal dining are included for all Forge participants throughout the engagement.</p>
             </div>
           </div>
         </div>
@@ -1277,7 +1395,7 @@
   <div class="container-narrow">
     <span class="section-eyebrow" style="color:rgba(247,243,238,0.6);text-align:center;display:block;">Why The Clearing Exists</span>
     <h2>"The most important conversations about technology happen best somewhere it hasn't arrived yet."</h2>
-    <p>We live in a world of permanent connection — notifications, feeds, inboxes, pings. The quality of our thinking, our relationships, and our decisions suffers quietly for it. The Clearing exists on a different premise: that the natural world, shared meals, and the presence of other human beings are not retreats from productive life. They are the conditions that make it possible.</p>
+    <p>We live in a world of permanent connection — notifications, feeds, inboxes, pings. The quality of our thinking, our relationships, and our decisions suffers quietly for it. The Clearing exists on a different premise: that the natural world, shared meals, and the presence of other people in the same room are not retreats from productive work. They are the conditions that make breakthrough work possible.</p>
   </div>
 </section>
 
@@ -1288,8 +1406,8 @@
       <h2>About<br>The Clearing</h2>
       <div class="about-body">
         <p>The Clearing began with a simple observation: the most important problems facing organizations today — how to build responsibly with data, how to scale technology without losing what's human, how to make good decisions in a world of infinite noise — are rarely solved in the environments where they're supposed to be solved.</p>
-        <p>We built The Clearing as an answer to that. A network of destinations in places of <strong>world-class natural beauty</strong> — the high desert of New Mexico, the wild Pacific coast of British Columbia, the ancient forests of the Blue Ridge — where the setting itself does some of the work. Where removal from the daily environment isn't an indulgence but a precondition for clear thinking.</p>
-        <p>Each location is designed to hold two kinds of guests without compromise: the individual or family seeking genuine rest and natural immersion, and the professional team seeking a different kind of productivity. Our Airstream fleet, private cabins, and group lodges serve both. Our family-style restaurant brings everyone to the same table. Our guided Experiences connect guests to each landscape and its people.</p>
+        <p>We built The Clearing as an answer to that. A network of destinations in places of <strong>world-class natural beauty</strong> — the high desert of New Mexico, the dramatic Pacific coastline of Big Sur, the ancient forests of the Blue Ridge — where the setting itself does some of the work. Where removal from the daily environment isn't an indulgence but a precondition for clear thinking.</p>
+        <p>Each location is designed to serve professional teams and groups seeking a different kind of productivity. Our Airstream fleet, private cabins, and group lodges accommodate every group configuration. Our on-site restaurant brings everyone to the same communal table. Our guided Experiences connect teams to each landscape and its people.</p>
         <p>And for the teams who need more than a beautiful setting — <strong>The Forge</strong> offers something no other retreat venue provides: a permanent, resident team of recognized experts in data, technology, scaling, and security, ready to work alongside your team on the problems that matter most.</p>
         <p>The Clearing is built on the conviction that <strong>technology and human life are not in opposition</strong> — but that understanding how to hold them together requires stepping back from both. That's what we're here for.</p>
       </div>
@@ -1302,7 +1420,7 @@
   <div class="container-narrow">
     <span class="section-eyebrow">Ready</span>
     <h2>Find your clearing.</h2>
-    <p>Whether you're planning a personal escape, a team retreat, or a Forge engagement — we'd love to help you find the right fit. Reach out or browse availability at any location.</p>
+    <p>Whether you're planning a team retreat, a Forge engagement, or a personal escape into somewhere extraordinary — we'd love to help you find the right fit.</p>
     <div class="booking-actions">
       <a href="#" class="btn-cream">Book a Stay</a>
       <a href="#" class="btn-ghost">Inquire for Groups & Retreats</a>
@@ -1316,13 +1434,13 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="#" class="nav-logo">The Clearing</a>
-      <p>A network of world-class natural retreat destinations where professional teams and curious individuals come to unplug, gather, and do their clearest thinking.</p>
+      <p>A network of world-class natural retreat destinations where professional teams come to unplug, gather, and do their clearest thinking.</p>
     </div>
     <div class="footer-col">
       <h4>Locations</h4>
       <ul>
-        <li><a href="#">Taos, NM</a></li>
-        <li><a href="#">Tofino, BC</a></li>
+        <li><a href="#">Santa Fe, NM</a></li>
+        <li><a href="#">Big Sur, CA</a></li>
         <li><a href="#">Asheville, NC</a></li>
       </ul>
     </div>
