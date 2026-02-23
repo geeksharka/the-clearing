@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Clearing — Unplug to Connect</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,1022 +19,252 @@
     --sage: #7A8C6E;
     --sage-light: #A8B89A;
     --rust: #9C6B4A;
+    --rust-light: #C4845A;
     --sand: #E8DECE;
     --text: #2C231A;
     --text-light: #6B5C4E;
   }
 
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--warm-white);
-    color: var(--text);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  h1, h2, h3, h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    line-height: 1.2;
-  }
+  body { font-family: 'Inter', sans-serif; background: var(--warm-white); color: var(--text); font-size: 16px; line-height: 1.7; }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.2; }
 
   /* NAV */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 1.25rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(251, 248, 244, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(196, 184, 168, 0.3);
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(251,248,244,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(196,184,168,0.3);
   }
 
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    color: var(--bark);
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+  .nav-logo-wrap { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+  .nav-wordmark { display: flex; flex-direction: column; gap: 0; }
+  .nav-wordmark-the { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.5rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--stone-dark); }
+  .nav-wordmark-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; letter-spacing: 0.1em; color: var(--bark); line-height: 1; }
 
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--bark); }
-
-  .nav-cta {
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    background: var(--bark);
-    color: var(--cream) !important;
-    padding: 0.6rem 1.4rem;
-    border-radius: 2px;
-  }
-
-  .nav-cta:hover { background: var(--earth); color: var(--cream) !important; }
+  .nav-cta { background: var(--bark); color: var(--cream) !important; padding: 0.6rem 1.4rem; border-radius: 2px; }
+  .nav-cta:hover { background: var(--earth) !important; }
 
   /* HERO */
   .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 8rem 2rem 6rem;
-    background:
-      linear-gradient(to bottom, rgba(251,248,244,0.15) 0%, rgba(61,46,34,0.45) 60%, rgba(61,46,34,0.7) 100%),
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 8rem 2rem 6rem;
+    background: linear-gradient(to bottom, rgba(251,248,244,0.1) 0%, rgba(61,46,34,0.45) 60%, rgba(61,46,34,0.72) 100%),
       url('https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1800&q=80') center/cover no-repeat;
     position: relative;
   }
 
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(247,243,238,0.75);
-    margin-bottom: 1.5rem;
-  }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247,243,238,0.75); margin-bottom: 2rem; }
 
-  .hero h1 {
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    color: var(--cream);
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.04em;
-  }
+  .hero-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+  .hero h1 { font-size: clamp(3.5rem, 8vw, 7rem); color: var(--cream); font-weight: 300; letter-spacing: 0.06em; line-height: 1; }
+  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.2vw, 1.5rem); font-style: italic; color: rgba(247,243,238,0.8); font-weight: 300; margin-bottom: 3rem; }
 
-  .hero-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-    font-style: italic;
-    color: rgba(247,243,238,0.88);
-    font-weight: 300;
-    margin-bottom: 3rem;
-    max-width: 600px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .btn-primary {
-    background: var(--cream);
-    color: var(--bark);
-    padding: 0.9rem 2.2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: var(--cream); color: var(--bark); padding: 0.9rem 2.2rem; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-family: 'Inter', sans-serif; }
   .btn-primary:hover { background: var(--sand); }
-
-  .btn-outline {
-    border: 1px solid rgba(247,243,238,0.6);
-    color: var(--cream);
-    padding: 0.9rem 2.2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-
+  .btn-outline { border: 1px solid rgba(247,243,238,0.6); color: var(--cream); padding: 0.9rem 2.2rem; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-family: 'Inter', sans-serif; }
   .btn-outline:hover { border-color: var(--cream); background: rgba(247,243,238,0.1); }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(247,243,238,0.5);
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
+  .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(247,243,238,0.5); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(247,243,238,0.5), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:0.4;} 50%{opacity:1;} }
 
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(247,243,238,0.5), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.4; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.1); }
-  }
-
-  /* SECTIONS */
+  /* GENERAL */
   section { padding: 7rem 2rem; }
-
   .container { max-width: 1100px; margin: 0 auto; }
   .container-narrow { max-width: 720px; margin: 0 auto; }
+  .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--stone-dark); margin-bottom: 1.2rem; display: block; }
+  .divider { width: 48px; height: 1px; background: var(--stone); margin: 3rem auto; }
 
-  .section-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--stone-dark);
-    margin-bottom: 1.2rem;
-    display: block;
-  }
+  /* SUB-BRAND LOCKUP (inline use) */
+  .sub-lockup { display: flex; align-items: center; gap: 0.8rem; }
+  .sub-lockup-stacked { display: flex; flex-direction: column; gap: 0.1rem; }
+  .sub-lockup-the { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; }
+  .sub-lockup-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.3rem; letter-spacing: 0.08em; line-height: 1; }
+  .sub-lockup-tag { font-family: 'Inter', sans-serif; font-weight: 200; font-size: 0.48rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.65; margin-top: 0.15rem; }
+  .on-light .sub-lockup-the { color: var(--stone-dark); }
+  .on-light .sub-lockup-name { color: var(--bark); }
+  .on-light .sub-lockup-tag { color: var(--stone-dark); }
+  .on-dark .sub-lockup-the { color: var(--sage-light); }
+  .on-dark .sub-lockup-name { color: var(--cream); }
+  .on-dark .sub-lockup-tag { color: var(--sage-light); }
 
   /* INTRO */
-  .intro {
-    background: var(--warm-white);
-    text-align: center;
-  }
-
-  .intro h2 {
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    color: var(--bark);
-    margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .intro p {
-    font-size: 1.15rem;
-    color: var(--text-light);
-    max-width: 640px;
-    margin: 0 auto 1.5rem;
-    font-weight: 300;
-  }
-
-  .divider {
-    width: 48px;
-    height: 1px;
-    background: var(--stone);
-    margin: 3rem auto;
-  }
+  .intro { background: var(--warm-white); text-align: center; }
+  .intro h2 { font-size: clamp(2.2rem,4vw,3.4rem); color: var(--bark); margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .intro p { font-size: 1.1rem; color: var(--text-light); max-width: 640px; margin: 0 auto 1.5rem; font-weight: 300; }
 
   /* THREE PATHS */
   .paths { background: var(--sand); }
-
-  .paths-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 4rem;
-  }
-
-  .path-card {
-    background: var(--cream);
-    padding: 3rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
+  .paths-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 4rem; }
+  .path-card { background: var(--cream); padding: 3rem 2.5rem; display: flex; flex-direction: column; transition: background 0.2s; }
   .path-card:hover { background: var(--warm-white); }
-
-  .path-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    color: var(--stone);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .path-card h3 {
-    font-size: 1.6rem;
-    color: var(--bark);
-    margin-bottom: 1rem;
-  }
-
-  .path-card p {
-    font-size: 0.92rem;
-    color: var(--text-light);
-    line-height: 1.8;
-    flex: 1;
-    margin-bottom: 2rem;
-  }
-
-  .path-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--earth);
-    border-top: 1px solid var(--stone);
-    padding-top: 1.2rem;
-    margin-top: auto;
-  }
+  .path-number { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--stone); font-weight: 300; line-height: 1; margin-bottom: 1.5rem; }
+  .path-card h3 { font-size: 1.6rem; color: var(--bark); margin-bottom: 1rem; }
+  .path-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.8; flex: 1; margin-bottom: 2rem; }
+  .path-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: var(--earth); border-top: 1px solid var(--stone); padding-top: 1.2rem; margin-top: auto; }
 
   /* LOCATIONS */
   .locations { background: var(--warm-white); }
-
-  .locations-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .locations-header h2 {
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: var(--bark);
-    max-width: 500px;
-  }
-
-  .locations-header p {
-    font-size: 0.92rem;
-    color: var(--text-light);
-    max-width: 340px;
-    text-align: right;
-  }
-
-  .locations-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .location-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-
-  .location-img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-  }
-
+  .locations-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1rem; }
+  .locations-header h2 { font-size: clamp(2rem,3.5vw,3rem); color: var(--bark); max-width: 500px; }
+  .locations-header p { font-size: 0.92rem; color: var(--text-light); max-width: 340px; text-align: right; }
+  .locations-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .location-card { position: relative; overflow: hidden; border-radius: 2px; cursor: pointer; }
+  .location-img { width: 100%; height: 420px; object-fit: cover; display: block; transition: transform 0.6s ease; }
   .location-card:hover .location-img { transform: scale(1.04); }
-
-  .location-overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(61,46,34,0.85) 0%, transparent 100%);
-  }
-
-  .location-region {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(247,243,238,0.65);
-    margin-bottom: 0.4rem;
-  }
-
-  .location-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--cream);
-  }
-
-  .location-desc {
-    font-size: 0.82rem;
-    color: rgba(247,243,238,0.75);
-    margin-top: 0.4rem;
-  }
+  .location-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(61,46,34,0.85) 0%, transparent 100%); }
+  .location-region { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,238,0.65); margin-bottom: 0.4rem; }
+  .location-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--cream); }
+  .location-desc { font-size: 0.82rem; color: rgba(247,243,238,0.75); margin-top: 0.4rem; }
 
   /* LODGING */
   .lodging { background: var(--cream); }
+  .lodging h2 { font-size: clamp(2rem,3.5vw,3rem); color: var(--bark); margin-bottom: 1rem; }
+  .lodging-intro { font-size: 1.05rem; color: var(--text-light); max-width: 580px; margin-bottom: 4rem; font-weight: 300; }
+  .lodging-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+  .lodging-item { background: var(--warm-white); padding: 2.5rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+  .lodging-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 0.2rem; }
+  .lodging-item h3 { font-size: 1.3rem; color: var(--bark); margin-bottom: 0.5rem; }
+  .lodging-item p { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; }
 
-  .lodging h2 {
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: var(--bark);
-    margin-bottom: 1rem;
-  }
-
-  .lodging-intro {
-    font-size: 1.05rem;
-    color: var(--text-light);
-    max-width: 580px;
-    margin-bottom: 4rem;
-    font-weight: 300;
-  }
-
-  .lodging-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-  }
-
-  .lodging-item {
-    background: var(--warm-white);
-    padding: 2.5rem;
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-  }
-
-  .lodging-icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-  }
-
-  .lodging-item h3 {
-    font-size: 1.3rem;
-    color: var(--bark);
-    margin-bottom: 0.5rem;
-  }
-
-  .lodging-item p {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.8;
-  }
-
-  /* AIRSTREAM FEATURE */
-  .airstream-feature {
-    background: var(--bark);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 520px;
-    padding: 0;
-  }
-
-  .airstream-img {
-    width: 100%;
-    height: 100%;
-    min-height: 420px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .airstream-content {
-    padding: 5rem 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
+  /* AIRSTREAM */
+  .airstream-feature { background: var(--bark); display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; padding: 0; }
+  .airstream-img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; display: block; }
+  .airstream-content { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
   .airstream-content .section-eyebrow { color: var(--sage-light); }
-
-  .airstream-content h2 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-  }
-
-  .airstream-content p {
-    font-size: 0.95rem;
-    color: rgba(247,243,238,0.75);
-    line-height: 1.9;
-    margin-bottom: 1rem;
-    font-weight: 300;
-  }
+  .airstream-content h2 { font-size: clamp(2rem,3vw,2.8rem); color: var(--cream); margin-bottom: 1.5rem; }
+  .airstream-content p { font-size: 0.95rem; color: rgba(247,243,238,0.75); line-height: 1.9; margin-bottom: 1rem; font-weight: 300; }
 
   /* DINING */
-  .dining {
-    background: var(--warm-white);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    padding: 0;
-    min-height: 560px;
-  }
-
-  .dining-content {
-    padding: 6rem 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--warm-white);
-  }
-
-  .dining-content h2 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    color: var(--bark);
-    margin-bottom: 1.5rem;
-  }
-
-  .dining-content p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.9;
-    margin-bottom: 1rem;
-    font-weight: 300;
-    max-width: 420px;
-  }
-
-  .dining-img {
-    width: 100%;
-    height: 100%;
-    min-height: 480px;
-    object-fit: cover;
-    display: block;
-  }
+  .dining { background: var(--warm-white); display: grid; grid-template-columns: 1fr 1fr; padding: 0; min-height: 560px; }
+  .dining-content { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+  .dining-content h2 { font-size: clamp(2rem,3vw,2.8rem); color: var(--bark); margin-bottom: 1.5rem; }
+  .dining-content p { font-size: 0.95rem; color: var(--text-light); line-height: 1.9; margin-bottom: 1rem; font-weight: 300; max-width: 420px; }
+  .dining-img { width: 100%; height: 100%; min-height: 480px; object-fit: cover; display: block; }
 
   /* BODY & SOUL */
   .body-soul { background: var(--sand); }
-
-  .body-soul-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .body-soul-header h2 {
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: var(--bark);
-    margin-bottom: 1rem;
-  }
-
-  .body-soul-intro {
-    font-size: 1.05rem;
-    color: var(--text-light);
-    max-width: 560px;
-    margin: 0 auto;
-    font-weight: 300;
-  }
-
-  .body-soul-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .bs-card {
-    background: var(--cream);
-    border-radius: 2px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .bs-img-wrap {
-    position: relative;
-    overflow: hidden;
-    height: 220px;
-  }
-
-  .bs-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-  }
-
+  .body-soul-header { text-align: center; margin-bottom: 4rem; }
+  .body-soul-header h2 { font-size: clamp(2rem,3.5vw,3rem); color: var(--bark); margin-bottom: 1rem; }
+  .body-soul-intro { font-size: 1.05rem; color: var(--text-light); max-width: 560px; margin: 0 auto; font-weight: 300; }
+  .body-soul-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .bs-card { background: var(--cream); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; }
+  .bs-img-wrap { position: relative; overflow: hidden; height: 220px; }
+  .bs-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
   .bs-card:hover .bs-img-wrap img { transform: scale(1.04); }
-
-  .bs-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(61,46,34,0.18) 100%);
-  }
-
+  .bs-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(61,46,34,0.18) 100%); }
   .bs-content { padding: 2rem 2.2rem 2.5rem; }
-
-  .bs-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--stone-dark);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .bs-content h3 {
-    font-size: 1.4rem;
-    color: var(--bark);
-    margin-bottom: 0.75rem;
-  }
-
-  .bs-content p {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.85;
-  }
+  .bs-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone-dark); display: block; margin-bottom: 0.5rem; }
+  .bs-content h3 { font-size: 1.4rem; color: var(--bark); margin-bottom: 0.75rem; }
+  .bs-content p { font-size: 0.88rem; color: var(--text-light); line-height: 1.85; }
 
   /* EXPERIENCES */
-  .experiences { background: var(--sand); }
-
-  .experiences h2 {
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: var(--bark);
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .experiences-intro {
-    text-align: center;
-    font-size: 1.05rem;
-    color: var(--text-light);
-    max-width: 580px;
-    margin: 0 auto 4rem;
-    font-weight: 300;
-  }
-
-  .experiences-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .exp-card {
-    background: var(--cream);
-    padding: 2.5rem;
-    border-radius: 2px;
-  }
-
-  .exp-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .exp-card h3 {
-    font-size: 1.3rem;
-    color: var(--bark);
-    margin-bottom: 0.75rem;
-  }
-
-  .exp-card p {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.8;
-  }
+  .experiences { background: var(--warm-white); }
+  .experiences h2 { font-size: clamp(2rem,3.5vw,3rem); color: var(--bark); margin-bottom: 1rem; text-align: center; }
+  .experiences-intro { text-align: center; font-size: 1.05rem; color: var(--text-light); max-width: 580px; margin: 0 auto 4rem; font-weight: 300; }
+  .experiences-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .exp-card { background: var(--cream); padding: 2.5rem; border-radius: 2px; }
+  .exp-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .exp-card h3 { font-size: 1.3rem; color: var(--bark); margin-bottom: 0.75rem; }
+  .exp-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; }
 
   /* RETREAT */
   .retreat { background: var(--cream); }
-
-  .retreat-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .retreat h2 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    color: var(--bark);
-    margin-bottom: 1.5rem;
-  }
-
-  .retreat p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.9;
-    margin-bottom: 1rem;
-    font-weight: 300;
-  }
-
-  .retreat-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .stat {
-    border-top: 1px solid var(--stone);
-    padding-top: 1.2rem;
-  }
-
-  .stat-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: var(--bark);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--stone-dark);
-  }
-
-  .retreat-img {
-    width: 100%;
-    height: 560px;
-    object-fit: cover;
-    border-radius: 2px;
-  }
+  .retreat-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .retreat h2 { font-size: clamp(2rem,3vw,2.8rem); color: var(--bark); margin-bottom: 1.5rem; }
+  .retreat p { font-size: 0.95rem; color: var(--text-light); line-height: 1.9; margin-bottom: 1rem; font-weight: 300; }
+  .retreat-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .stat { border-top: 1px solid var(--stone); padding-top: 1.2rem; }
+  .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--bark); line-height: 1; margin-bottom: 0.3rem; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-dark); }
+  .retreat-img { width: 100%; height: 560px; object-fit: cover; border-radius: 2px; }
 
   /* THE FORGE */
-  .forge {
-    background: var(--bark);
-    position: relative;
-    overflow: hidden;
-  }
+  .forge { background: var(--bark); position: relative; overflow: hidden; }
+  .forge::before { content: 'THE FORGE'; position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 18vw; color: rgba(255,255,255,0.03); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; letter-spacing: 0.1em; }
+  .forge-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 1; }
+  .forge h2 { font-size: clamp(2rem,3vw,3rem); color: var(--cream); margin-bottom: 1.5rem; }
+  .forge p { font-size: 0.95rem; color: rgba(247,243,238,0.72); line-height: 1.9; margin-bottom: 1rem; font-weight: 300; }
+  .forge-pillars { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+  .forge-pillar { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .forge-pillar-icon { width: 36px; height: 36px; background: rgba(247,243,238,0.08); border: 1px solid rgba(247,243,238,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .forge-pillar-text h4 { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 0.3rem; }
+  .forge-pillar-text p { font-size: 0.88rem; color: rgba(247,243,238,0.6); margin: 0; }
+  .forge-card { background: rgba(247,243,238,0.06); border: 1px solid rgba(247,243,238,0.12); padding: 3rem; border-radius: 2px; }
+  .forge-card-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 2rem; display: block; }
+  .forge-steps { display: flex; flex-direction: column; gap: 2rem; }
+  .forge-step { display: flex; gap: 1.2rem; }
+  .forge-step-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: rgba(247,243,238,0.2); font-weight: 300; line-height: 1; flex-shrink: 0; width: 2rem; text-align: center; }
+  .forge-step-content h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--cream); font-weight: 400; margin-bottom: 0.3rem; }
+  .forge-step-content p { font-size: 0.83rem; color: rgba(247,243,238,0.55); margin: 0; line-height: 1.7; }
+  .forge-cta { margin-top: 2.5rem; background: var(--rust); color: var(--cream); padding: 1rem 2rem; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; display: inline-block; border-radius: 2px; transition: background 0.2s; font-family: 'Inter', sans-serif; }
+  .forge-cta:hover { background: var(--rust-light); }
 
-  .forge::before {
-    content: 'THE FORGE';
-    position: absolute;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18vw;
-    color: rgba(255,255,255,0.03);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
-    pointer-events: none;
-    letter-spacing: 0.1em;
-  }
-
-  .forge-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .forge .section-eyebrow { color: var(--sage-light); }
-
-  .forge h2 {
-    font-size: clamp(2rem, 3vw, 3rem);
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-  }
-
-  .forge p {
-    font-size: 0.95rem;
-    color: rgba(247,243,238,0.72);
-    line-height: 1.9;
-    margin-bottom: 1rem;
-    font-weight: 300;
-  }
-
-  .forge-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .forge-pillar {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-  }
-
-  .forge-pillar-icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(247,243,238,0.08);
-    border: 1px solid rgba(247,243,238,0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-  }
-
-  .forge-pillar-text h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 0.3rem;
-  }
-
-  .forge-pillar-text p {
-    font-size: 0.88rem;
-    color: rgba(247,243,238,0.6);
-    margin: 0;
-  }
-
-  .forge-card {
-    background: rgba(247,243,238,0.06);
-    border: 1px solid rgba(247,243,238,0.12);
-    padding: 3rem;
-    border-radius: 2px;
-  }
-
-  .forge-card-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .forge-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .forge-step {
-    display: flex;
-    gap: 1.2rem;
-  }
-
-  .forge-step-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    color: rgba(247,243,238,0.2);
-    font-weight: 300;
-    line-height: 1;
-    flex-shrink: 0;
-    width: 2rem;
-    text-align: center;
-  }
-
-  .forge-step-content h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    color: var(--cream);
-    font-weight: 400;
-    margin-bottom: 0.3rem;
-  }
-
-  .forge-step-content p {
-    font-size: 0.83rem;
-    color: rgba(247,243,238,0.55);
-    margin: 0;
-    line-height: 1.7;
-  }
-
-  .forge-cta {
-    margin-top: 2.5rem;
-    background: var(--rust);
-    color: var(--cream);
-    padding: 1rem 2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 2px;
-    transition: background 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .forge-cta:hover { background: #b07a58; }
+  /* THE SPARK */
+  .spark { background: #1A1410; position: relative; overflow: hidden; }
+  .spark::before { content: 'THE SPARK'; position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 18vw; color: rgba(196,132,90,0.04); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; letter-spacing: 0.1em; }
+  .spark-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 1; }
+  .spark h2 { font-size: clamp(2rem,3vw,3rem); color: var(--cream); margin-bottom: 1.5rem; }
+  .spark p { font-size: 0.95rem; color: rgba(247,243,238,0.65); line-height: 1.9; margin-bottom: 1rem; font-weight: 300; }
+  .spark-card { background: rgba(196,132,90,0.07); border: 1px solid rgba(196,132,90,0.18); padding: 3rem; border-radius: 2px; }
+  .spark-card-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust-light); margin-bottom: 2rem; display: block; }
+  .spark-items { display: flex; flex-direction: column; gap: 1.5rem; }
+  .spark-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .spark-item-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rust-light); flex-shrink: 0; margin-top: 0.5rem; }
+  .spark-item-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--cream); font-weight: 400; margin-bottom: 0.25rem; }
+  .spark-item-text p { font-size: 0.83rem; color: rgba(247,243,238,0.5); margin: 0; line-height: 1.7; }
+  .spark-cta { margin-top: 2.5rem; background: var(--rust-light); color: var(--cream); padding: 1rem 2rem; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; display: inline-block; border-radius: 2px; transition: background 0.2s; font-family: 'Inter', sans-serif; }
+  .spark-cta:hover { background: var(--rust); }
 
   /* PHILOSOPHY */
-  .philosophy {
-    background: var(--sage);
-    text-align: center;
-    padding: 8rem 2rem;
-  }
-
-  .philosophy h2 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    color: var(--cream);
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    font-style: italic;
-  }
-
-  .philosophy p {
-    font-size: 1rem;
-    color: rgba(247,243,238,0.8);
-    max-width: 580px;
-    margin: 0 auto;
-    font-weight: 300;
-    line-height: 1.9;
-  }
+  .philosophy { background: var(--sage); text-align: center; padding: 8rem 2rem; }
+  .philosophy h2 { font-size: clamp(2.5rem,5vw,4.5rem); color: var(--cream); max-width: 800px; margin: 0 auto 2rem; font-style: italic; }
+  .philosophy p { font-size: 1rem; color: rgba(247,243,238,0.8); max-width: 580px; margin: 0 auto; font-weight: 300; line-height: 1.9; }
 
   /* ABOUT */
   .about { background: var(--warm-white); }
-
-  .about-inner {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .about h2 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    color: var(--bark);
-    position: sticky;
-    top: 7rem;
-  }
-
-  .about-body p {
-    font-size: 1rem;
-    color: var(--text-light);
-    line-height: 1.95;
-    margin-bottom: 1.5rem;
-    font-weight: 300;
-  }
-
-  .about-body p strong {
-    color: var(--bark);
-    font-weight: 500;
-  }
+  .about-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
+  .about h2 { font-size: clamp(2rem,3vw,2.8rem); color: var(--bark); position: sticky; top: 7rem; }
+  .about-body p { font-size: 1rem; color: var(--text-light); line-height: 1.95; margin-bottom: 1.5rem; font-weight: 300; }
+  .about-body p strong { color: var(--bark); font-weight: 500; }
 
   /* BOOKING */
-  .booking {
-    background: var(--bark);
-    text-align: center;
-    padding: 8rem 2rem;
-  }
-
-  .booking .section-eyebrow { color: var(--sage-light); text-align: center; display: block; }
-
-  .booking h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .booking p {
-    font-size: 1rem;
-    color: rgba(247,243,238,0.7);
-    max-width: 480px;
-    margin: 0 auto 3rem;
-    font-weight: 300;
-    line-height: 1.8;
-  }
-
-  .booking-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-cream {
-    background: var(--cream);
-    color: var(--bark);
-    padding: 1rem 2.5rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-
+  .booking { background: var(--bark); text-align: center; padding: 8rem 2rem; }
+  .booking h2 { font-size: clamp(2.5rem,5vw,4rem); color: var(--cream); margin-bottom: 1.5rem; font-style: italic; }
+  .booking p { font-size: 1rem; color: rgba(247,243,238,0.7); max-width: 480px; margin: 0 auto 3rem; font-weight: 300; line-height: 1.8; }
+  .booking-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-cream { background: var(--cream); color: var(--bark); padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s; font-family: 'Inter', sans-serif; }
   .btn-cream:hover { background: var(--sand); }
-
-  .btn-ghost {
-    border: 1px solid rgba(247,243,238,0.4);
-    color: rgba(247,243,238,0.85);
-    padding: 1rem 2.5rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-
+  .btn-ghost { border: 1px solid rgba(247,243,238,0.4); color: rgba(247,243,238,0.85); padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-family: 'Inter', sans-serif; }
   .btn-ghost:hover { border-color: var(--cream); color: var(--cream); }
 
   /* FOOTER */
-  footer {
-    background: #2C1F14;
-    padding: 4rem 3rem 2.5rem;
-    color: rgba(247,243,238,0.5);
-  }
-
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .footer-brand .nav-logo {
-    color: var(--cream);
-    display: block;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-
-  .footer-brand p {
-    font-size: 0.83rem;
-    line-height: 1.8;
-    max-width: 260px;
-  }
-
-  .footer-col h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(247,243,238,0.4);
-    margin-bottom: 1.2rem;
-  }
-
+  footer { background: #2C1F14; padding: 4rem 3rem 2.5rem; color: rgba(247,243,238,0.5); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { font-size: 0.83rem; line-height: 1.8; max-width: 260px; margin-top: 1rem; }
+  .footer-col h4 { font-family: 'Inter', sans-serif; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,238,0.4); margin-bottom: 1.2rem; }
   .footer-col ul { list-style: none; }
   .footer-col ul li { margin-bottom: 0.6rem; }
-  .footer-col ul li a {
-    color: rgba(247,243,238,0.55);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.2s;
-  }
+  .footer-col ul li a { color: rgba(247,243,238,0.55); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
   .footer-col ul li a:hover { color: var(--cream); }
-
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 0 auto;
-    border-top: 1px solid rgba(247,243,238,0.08);
-    padding-top: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+  .footer-bottom { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(247,243,238,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.75rem; flex-wrap: wrap; gap: 0.5rem; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .paths-grid, .locations-grid, .experiences-grid { grid-template-columns: 1fr; }
+    .paths-grid, .locations-grid, .experiences-grid, .body-soul-grid { grid-template-columns: 1fr; }
     .lodging-grid { grid-template-columns: 1fr; }
-    .airstream-feature, .dining, .retreat-inner, .forge-inner, .about-inner { grid-template-columns: 1fr; gap: 0; }
+    .airstream-feature, .dining, .retreat-inner, .forge-inner, .spark-inner, .about-inner { grid-template-columns: 1fr; gap: 0; }
     .airstream-content, .dining-content { padding: 3rem 2rem; }
     .dining-img, .retreat-img { min-height: 320px; }
-    .forge-inner { gap: 3rem; }
+    .forge-inner, .spark-inner { gap: 3rem; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .about h2 { position: static; }
   }
@@ -1044,12 +274,29 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">The Clearing</a>
+  <a href="#" class="nav-logo-wrap">
+    <svg width="28" height="28" viewBox="0 0 52 52" fill="none">
+      <line x1="26" y1="4" x2="26" y2="14" stroke="#A8B89A" stroke-width="1" stroke-linecap="round"/>
+      <line x1="26" y1="4" x2="20" y2="12" stroke="#A8B89A" stroke-width="0.75" stroke-linecap="round" opacity="0.6"/>
+      <line x1="26" y1="4" x2="32" y2="12" stroke="#A8B89A" stroke-width="0.75" stroke-linecap="round" opacity="0.6"/>
+      <line x1="26" y1="4" x2="15" y2="11" stroke="#A8B89A" stroke-width="0.5" stroke-linecap="round" opacity="0.4"/>
+      <line x1="26" y1="4" x2="37" y2="11" stroke="#A8B89A" stroke-width="0.5" stroke-linecap="round" opacity="0.4"/>
+      <path d="M8 40 L14 22 L20 40Z" fill="none" stroke="#3D2E22" stroke-width="1.25" stroke-linejoin="round"/>
+      <path d="M32 40 L38 22 L44 40Z" fill="none" stroke="#3D2E22" stroke-width="1.25" stroke-linejoin="round"/>
+      <line x1="4" y1="40" x2="48" y2="40" stroke="#8C7D6E" stroke-width="1" stroke-linecap="round"/>
+      <ellipse cx="26" cy="40" rx="10" ry="2" fill="#C4B8A8" opacity="0.3"/>
+    </svg>
+    <div class="nav-wordmark">
+      <span class="nav-wordmark-the">The</span>
+      <span class="nav-wordmark-name">Clearing</span>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#locations">Locations</a></li>
     <li><a href="#stay">Stay</a></li>
     <li><a href="#retreat">Retreats</a></li>
     <li><a href="#forge">The Forge</a></li>
+    <li><a href="#spark">The Spark</a></li>
     <li><a href="#experiences">Experiences</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#book" class="nav-cta">Book a Stay</a></li>
@@ -1059,7 +306,23 @@
 <!-- HERO -->
 <section class="hero">
   <p class="hero-eyebrow">Santa Fe · Big Sur · Asheville</p>
-  <h1>The Clearing</h1>
+  <div class="hero-logo-wrap">
+    <svg width="72" height="72" viewBox="0 0 52 52" fill="none">
+      <line x1="26" y1="4" x2="26" y2="14" stroke="#A8B89A" stroke-width="1" stroke-linecap="round"/>
+      <line x1="26" y1="4" x2="20" y2="12" stroke="#A8B89A" stroke-width="0.75" stroke-linecap="round" opacity="0.7"/>
+      <line x1="26" y1="4" x2="32" y2="12" stroke="#A8B89A" stroke-width="0.75" stroke-linecap="round" opacity="0.7"/>
+      <line x1="26" y1="4" x2="15" y2="11" stroke="#A8B89A" stroke-width="0.5" stroke-linecap="round" opacity="0.5"/>
+      <line x1="26" y1="4" x2="37" y2="11" stroke="#A8B89A" stroke-width="0.5" stroke-linecap="round" opacity="0.5"/>
+      <path d="M8 40 L14 22 L20 40Z" fill="none" stroke="#F7F3EE" stroke-width="1.25" stroke-linejoin="round"/>
+      <path d="M10 40 L14 28 L18 40Z" fill="#F7F3EE" opacity="0.08"/>
+      <path d="M32 40 L38 22 L44 40Z" fill="none" stroke="#F7F3EE" stroke-width="1.25" stroke-linejoin="round"/>
+      <path d="M34 40 L38 28 L42 40Z" fill="#F7F3EE" opacity="0.08"/>
+      <line x1="4" y1="40" x2="48" y2="40" stroke="rgba(247,243,238,0.5)" stroke-width="1" stroke-linecap="round"/>
+      <ellipse cx="26" cy="40" rx="10" ry="2" fill="#A8B89A" opacity="0.25"/>
+      <line x1="26" y1="40" x2="26" y2="32" stroke="rgba(247,243,238,0.3)" stroke-width="0.75" stroke-linecap="round"/>
+    </svg>
+    <h1>The Clearing</h1>
+  </div>
   <p class="hero-tagline">Unplug to Connect</p>
   <div class="hero-actions">
     <a href="#stay" class="btn-primary">Plan Your Stay</a>
@@ -1077,9 +340,9 @@
     <span class="section-eyebrow">What is The Clearing</span>
     <h2>A place where the noise stops and the thinking begins.</h2>
     <p>The Clearing is a network of world-class natural retreat destinations — set on coastlines, in high desert light, and deep in mountain forests — where professional teams and groups come to do their clearest thinking and most purposeful work.</p>
-    <p>Each location offers exceptional lodging, group dining crafted from quality ingredients, guided Experiences that connect teams to the land and its people, and purpose-built programming for the groups who need more than a change of scenery.</p>
+    <p>Each location offers exceptional lodging, communal dining crafted from quality ingredients, Body & Soul amenities, guided Experiences that connect teams to the land and its people, and purpose-built programming for the groups who need more than a change of scenery.</p>
     <div class="divider"></div>
-    <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; color:var(--earth);">"The best conversations happen somewhere worth having them."</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--earth);">"The best conversations happen somewhere worth having them."</p>
   </div>
 </section>
 
@@ -1087,26 +350,24 @@
 <section class="paths" id="paths">
   <div class="container">
     <span class="section-eyebrow">Who comes to The Clearing</span>
-    <h2 style="font-size:clamp(2rem,3.5vw,3rem);color:var(--bark);margin-bottom:0.5rem;">Three ways to arrive.<br>One place to land.</h2>
-  </div>
-  <div class="container" style="margin-top:0">
+    <h2 style="font-size:clamp(2rem,3.5vw,3rem);color:var(--bark);">Three ways to arrive. One place to land.</h2>
     <div class="paths-grid">
       <div class="path-card">
         <div class="path-number">01</div>
         <h3>Stay & Explore</h3>
-        <p>Come as a team, a group, or on your own. Choose your landscape — high desert, dramatic coastline, or old-growth forest. Sleep in a tent, an Airstream, or a private cabin. Wake up somewhere that resets how you think. The only agenda is yours.</p>
+        <p>Come as a team, a group, or on your own. Choose your landscape — high desert, dramatic coastline, or old-growth forest. Sleep in a tent, an Airstream, or a private cabin. Wake up somewhere that resets how you think.</p>
         <p class="path-tagline">Your kind of away.</p>
       </div>
       <div class="path-card">
         <div class="path-number">02</div>
         <h3>Retreat & Gather</h3>
-        <p>Bring your team somewhere that does the work for you. The Clearing hosts professional groups and small conferences up to 100 attendees — with group lodges, shared meals, guided experiences, and full event support. The offsite that actually changes something.</p>
+        <p>Bring your team somewhere that does the work for you. The Clearing hosts professional groups and small conferences up to 100 attendees — with group lodges, shared meals, guided experiences, and full event support.</p>
         <p class="path-tagline">The offsite that actually changes something.</p>
       </div>
       <div class="path-card">
         <div class="path-number">03</div>
-        <h3>The Forge</h3>
-        <p>For small teams with hard problems. Arrive with a strategic challenge. Leave with a roadmap, engineering direction, and design specs ready to execute — guided by The Clearing's permanent team of recognized experts in data, technology, scaling, and security.</p>
+        <h3>The Forge & The Spark</h3>
+        <p>For teams with hard problems. From a focused 2–4 hour Spark session to a full 3–5 day Forge intensive — guided by The Clearing's permanent team of recognized experts in data, technology, scaling, and security.</p>
         <p class="path-tagline">Where the real work happens.</p>
       </div>
     </div>
@@ -1125,7 +386,7 @@
     </div>
     <div class="locations-grid">
       <div class="location-card">
-        <img class="location-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Santa Fe, New Mexico">
+        <img class="location-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Santa Fe">
         <div class="location-overlay">
           <p class="location-region">New Mexico</p>
           <p class="location-name">Santa Fe</p>
@@ -1133,7 +394,7 @@
         </div>
       </div>
       <div class="location-card">
-        <img class="location-img" src="https://images.unsplash.com/photo-1476158085676-e67f57ed9ed7?w=800&q=80" alt="Big Sur, California">
+        <img class="location-img" src="https://images.unsplash.com/photo-1476158085676-e67f57ed9ed7?w=800&q=80" alt="Big Sur">
         <div class="location-overlay">
           <p class="location-region">California</p>
           <p class="location-name">Big Sur</p>
@@ -1141,7 +402,7 @@
         </div>
       </div>
       <div class="location-card">
-        <img class="location-img" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" alt="Asheville, NC">
+        <img class="location-img" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" alt="Asheville">
         <div class="location-overlay">
           <p class="location-region">North Carolina</p>
           <p class="location-name">Asheville</p>
@@ -1159,39 +420,15 @@
     <h2>Room for every group.<br>Space for everything.</h2>
     <p class="lodging-intro">The Clearing offers a range of lodging at every location — from genuine ground-level tent sites to private cabins and group lodges — so every team finds its right fit.</p>
     <div class="lodging-grid">
-      <div class="lodging-item">
-        <span class="lodging-icon">⛺</span>
-        <div>
-          <h3>Tent Sites</h3>
-          <p>A handful of true tent sites for guests who want genuine ground-level immersion. Closest to the earth, closest to the sky. The purist's choice, with full access to every Clearing amenity.</p>
-        </div>
-      </div>
-      <div class="lodging-item">
-        <span class="lodging-icon">🚌</span>
-        <div>
-          <h3>Airstream Accommodations</h3>
-          <p>A wide selction of Airstreams per location, styled and appointed by The Clearing. The charm of trailer life without the logistics. Iconic, beautiful, and deeply on-brand — each one positioned for the view.</p>
-        </div>
-      </div>
-      <div class="lodging-item">
-        <span class="lodging-icon">🏡</span>
-        <div>
-          <h3>Private Cabins</h3>
-          <p>Thoughtfully designed private cabins for individuals and small teams seeking more space and seclusion. The highest tier of personal lodging — and home to Forge participants during their engagement.</p>
-        </div>
-      </div>
-      <div class="lodging-item">
-        <span class="lodging-icon">🏕️</span>
-        <div>
-          <h3>Group Lodges</h3>
-          <p>Large-format gathering and sleeping accommodations built for professional retreat groups, conferences, and events up to 100 attendees. Flexible, well-equipped, and designed to facilitate great group work.</p>
-        </div>
-      </div>
+      <div class="lodging-item"><span class="lodging-icon">⛺</span><div><h3>Tent Sites</h3><p>A handful of true tent sites for guests who want genuine ground-level immersion. Closest to the earth, closest to the sky. Full access to every Clearing amenity.</p></div></div>
+      <div class="lodging-item"><span class="lodging-icon">🚌</span><div><h3>Airstream Accommodations</h3><p>Twenty pre-installed Airstreams per location, styled and appointed by The Clearing. The romance of trailer life without the logistics — each one positioned for the view.</p></div></div>
+      <div class="lodging-item"><span class="lodging-icon">🏡</span><div><h3>Private Cabins</h3><p>Thoughtfully designed private cabins for individuals and small teams seeking more space and seclusion. The highest tier of personal lodging — and home to Forge participants.</p></div></div>
+      <div class="lodging-item"><span class="lodging-icon">🏕️</span><div><h3>Group Lodges</h3><p>Large-format gathering and sleeping spaces built for professional retreat groups and events up to 100 attendees. Flexible, well-equipped, designed for great group work.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- AIRSTREAM FEATURE -->
+<!-- AIRSTREAM -->
 <div class="airstream-feature">
   <img class="airstream-img" src="https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=900&q=80" alt="Airstream at The Clearing">
   <div class="airstream-content">
@@ -1218,43 +455,22 @@
 <section class="body-soul" id="body-soul">
   <div class="container">
     <div class="body-soul-header">
-      <span class="section-eyebrow">Body & Soul</span>
+      <span class="section-eyebrow" style="display:block;text-align:center;">Body & Soul</span>
       <h2>Every location. Every stay.</h2>
       <p class="body-soul-intro">Clarity of mind begins in the body. Every Clearing location is equipped with three spaces designed to ground, restore, and prepare you for the work ahead.</p>
     </div>
     <div class="body-soul-grid">
       <div class="bs-card">
-        <div class="bs-img-wrap">
-          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" alt="Yoga Studio">
-          <div class="bs-img-overlay"></div>
-        </div>
-        <div class="bs-content">
-          <span class="bs-label">The Studio</span>
-          <h3>Yoga & Movement</h3>
-          <p>A dedicated yoga studio at every location, open for individual practice at any hour or led sessions with an on-site instructor. Natural light, considered acoustics, and a view worth holding your gaze. Whether you arrive stiff from travel or simply need to start the day right, the studio is yours.</p>
-        </div>
+        <div class="bs-img-wrap"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" alt="Yoga Studio"><div class="bs-img-overlay"></div></div>
+        <div class="bs-content"><span class="bs-label">The Studio</span><h3>Yoga & Movement</h3><p>A dedicated yoga studio at every location, open for individual practice at any hour or led sessions with an on-site instructor. Natural light, considered acoustics, and a view worth holding your gaze.</p></div>
       </div>
       <div class="bs-card">
-        <div class="bs-img-wrap">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Gym">
-          <div class="bs-img-overlay"></div>
-        </div>
-        <div class="bs-content">
-          <span class="bs-label">The Gym</span>
-          <h3>Fitness & Strength</h3>
-          <p>Small but impeccably appointed. Free weights, functional training equipment, and cardio essentials — everything a serious traveler needs and nothing they don't. Designed for focus, not spectacle. The kind of gym that makes you wish your gym at home looked like this.</p>
-        </div>
+        <div class="bs-img-wrap"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Gym"><div class="bs-img-overlay"></div></div>
+        <div class="bs-content"><span class="bs-label">The Gym</span><h3>Fitness & Strength</h3><p>Small but impeccably appointed. Free weights, functional training equipment, and cardio essentials — everything a serious traveler needs and nothing they don't. Designed for focus, not spectacle.</p></div>
       </div>
       <div class="bs-card">
-        <div class="bs-img-wrap">
-          <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=800&q=80" alt="Zen Garden">
-          <div class="bs-img-overlay"></div>
-        </div>
-        <div class="bs-content">
-          <span class="bs-label">The Garden</span>
-          <h3>Zen Gardens</h3>
-          <p>Each Clearing location has a Zen garden built with one purpose: quiet. Thoughtfully designed for contemplation, solitude, and the kind of unhurried thinking that doesn't happen at a desk. Come alone, stay as long as you need. Some of the best ideas at The Clearing begin here.</p>
-        </div>
+        <div class="bs-img-wrap"><img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=800&q=80" alt="Zen Garden"><div class="bs-img-overlay"></div></div>
+        <div class="bs-content"><span class="bs-label">The Garden</span><h3>Zen Gardens</h3><p>Each Clearing location has a Zen garden built with one purpose: quiet. Thoughtfully designed for contemplation, solitude, and the kind of unhurried thinking that doesn't happen at a desk.</p></div>
       </div>
     </div>
   </div>
@@ -1265,28 +481,16 @@
   <div class="container">
     <span class="section-eyebrow" style="text-align:center;display:block;">The Clearing Experiences</span>
     <h2>The place is the activity.</h2>
-    <p class="experiences-intro">Every Clearing location offers a curated menu of expertly guided experiences — from a few hours to a full day. On site or out into the surrounding landscape. Available for individual guests or tailored for groups.</p>
+    <p class="experiences-intro">Every location offers a curated menu of expertly guided experiences — from a few hours to a full day. On site or out into the surrounding landscape. Available individually or tailored for groups.</p>
     <div class="experiences-grid">
-      <div class="exp-card">
-        <span class="exp-icon">🌲</span>
-        <h3>Nature & Land</h3>
-        <p>Guided hikes, wildlife encounters, dawn walks, and landscape explorations led by people who know the terrain the way most of us know our commute. Each location's natural world, made fully accessible to your group.</p>
-      </div>
-      <div class="exp-card">
-        <span class="exp-icon">🎨</span>
-        <h3>Local Artisans & Culture</h3>
-        <p>Visits to local makers, craftspeople, and cultural landmarks that root The Clearing in its place. Santa Fe's art community, Big Sur's coastal traditions, Asheville's renowned craft scene — all within reach.</p>
-      </div>
-      <div class="exp-card">
-        <span class="exp-icon">🤝</span>
-        <h3>Group Experiences</h3>
-        <p>For professional retreat groups and teams, experiences can be designed and tailored to your group's specific needs — whether that's a team-building morning or a full-day offsite capstone out in the field.</p>
-      </div>
+      <div class="exp-card"><span class="exp-icon">🌲</span><h3>Nature & Land</h3><p>Guided hikes, wildlife encounters, dawn walks, and landscape explorations led by people who know the terrain the way most of us know our commute. Each location's natural world, made fully accessible.</p></div>
+      <div class="exp-card"><span class="exp-icon">🎨</span><h3>Local Artisans & Culture</h3><p>Visits to local makers, craftspeople, and cultural landmarks. Santa Fe's art community, Big Sur's coastal traditions, Asheville's renowned craft scene — all within reach.</p></div>
+      <div class="exp-card"><span class="exp-icon">🤝</span><h3>Group Experiences</h3><p>For professional retreat groups, experiences can be designed and tailored to your specific needs — from a team-building morning to a full-day offsite capstone out in the field.</p></div>
     </div>
   </div>
 </section>
 
-<!-- RETREAT & GROUPS -->
+<!-- RETREAT -->
 <section class="retreat" id="retreat">
   <div class="container">
     <div class="retreat-inner">
@@ -1296,22 +500,10 @@
         <p>Most offsites change nothing. You fly somewhere, sit in a windowless room, run through slides, fly home. The Clearing is built on a different premise: that genuine removal from the environment wearing your team down — replaced with natural beauty, shared meals, and real space to think together — produces outcomes no conference room ever will.</p>
         <p>We host professional groups and small conferences up to 100 attendees across every location. Group lodges, communal dining, guided experiences, and full event support. You bring the people and the agenda. The Clearing does the rest.</p>
         <div class="retreat-stats">
-          <div class="stat">
-            <div class="stat-number">100</div>
-            <div class="stat-label">Max Attendees</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Locations</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">All</div>
-            <div class="stat-label">Inclusive</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Point of Contact</div>
-          </div>
+          <div class="stat"><div class="stat-number">100</div><div class="stat-label">Max Attendees</div></div>
+          <div class="stat"><div class="stat-number">3</div><div class="stat-label">Locations</div></div>
+          <div class="stat"><div class="stat-number">All</div><div class="stat-label">Inclusive</div></div>
+          <div class="stat"><div class="stat-number">1</div><div class="stat-label">Point of Contact</div></div>
         </div>
       </div>
       <img class="retreat-img" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=900&q=80" alt="Group retreat at The Clearing">
@@ -1324,66 +516,84 @@
   <div class="container">
     <div class="forge-inner">
       <div>
-        <span class="section-eyebrow">The Forge</span>
+        <!-- Forge logo lockup -->
+        <div class="sub-lockup on-dark" style="margin-bottom:2rem;">
+          <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+            <path d="M26 8 L42 24 L26 44 L10 24 Z" fill="none" stroke="#F7F3EE" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M26 16 L36 26 L26 38 L16 26 Z" fill="#F7F3EE" opacity="0.07"/>
+            <line x1="26" y1="8" x2="26" y2="44" stroke="#F7F3EE" stroke-width="0.75" stroke-linecap="round" opacity="0.2"/>
+            <line x1="10" y1="24" x2="42" y2="24" stroke="#F7F3EE" stroke-width="0.75" stroke-linecap="round" opacity="0.2"/>
+            <path d="M26 8 C24 12 22 10 23 14 C24 16 26 15 26 18 C26 15 28 16 29 14 C30 10 28 12 26 8Z" fill="#C4845A"/>
+            <circle cx="26" cy="44" r="1.5" fill="#F7F3EE" opacity="0.4"/>
+          </svg>
+          <div class="sub-lockup-stacked">
+            <span class="sub-lockup-the">The</span>
+            <span class="sub-lockup-name">Forge</span>
+            <span class="sub-lockup-tag">Strategic Intensive · 3–5 Days</span>
+          </div>
+        </div>
         <h2>Arrive with the problem.<br>Leave with the plan.</h2>
-        <p>The Forge is The Clearing's signature intensive for small teams with hard problems. Groups of 2–6 decision-makers and stakeholders work through a critical strategic challenge over multiple days — guided by The Clearing's permanent team of recognized experts in data, technology, scaling, and security.</p>
+        <p>The Forge is The Clearing's signature intensive for small teams with hard problems. Groups of 2–6 decision-makers work through a critical strategic challenge over multiple days — guided by The Clearing's permanent team of recognized experts in data, technology, scaling, and security.</p>
         <p>The outcome isn't a better conversation about the problem. It's a strategic roadmap, actionable engineering direction, and design specifications ready to execute the moment your team is home.</p>
         <div class="forge-pillars">
-          <div class="forge-pillar">
-            <div class="forge-pillar-icon">⚡</div>
-            <div class="forge-pillar-text">
-              <h4>Data & Architecture</h4>
-              <p>Expert guidance on data strategy, system design, and technical foundations.</p>
-            </div>
-          </div>
-          <div class="forge-pillar">
-            <div class="forge-pillar-icon">📈</div>
-            <div class="forge-pillar-text">
-              <h4>Scaling & Growth</h4>
-              <p>Roadmapping for teams navigating rapid change, platform evolution, or product scaling.</p>
-            </div>
-          </div>
-          <div class="forge-pillar">
-            <div class="forge-pillar-icon">🔒</div>
-            <div class="forge-pillar-text">
-              <h4>Security & Risk</h4>
-              <p>Security posture, compliance strategy, and engineering risk assessment built into the plan.</p>
-            </div>
-          </div>
+          <div class="forge-pillar"><div class="forge-pillar-icon">⚡</div><div class="forge-pillar-text"><h4>Data & Architecture</h4><p>Expert guidance on data strategy, system design, and technical foundations.</p></div></div>
+          <div class="forge-pillar"><div class="forge-pillar-icon">📈</div><div class="forge-pillar-text"><h4>Scaling & Growth</h4><p>Roadmapping for teams navigating rapid change, platform evolution, or product scaling.</p></div></div>
+          <div class="forge-pillar"><div class="forge-pillar-icon">🔒</div><div class="forge-pillar-text"><h4>Security & Risk</h4><p>Security posture, compliance strategy, and engineering risk assessment built into the plan.</p></div></div>
         </div>
         <a href="#book" class="forge-cta">Inquire About The Forge</a>
       </div>
       <div class="forge-card">
         <span class="forge-card-label">How The Forge Works</span>
         <div class="forge-steps">
-          <div class="forge-step">
-            <div class="forge-step-num">1</div>
-            <div class="forge-step-content">
-              <h4>Arrive with the problem</h4>
-              <p>Your team arrives at The Clearing with a defined strategic challenge — a roadmap, an architecture decision, or perhaps a scaling question that won't resolve back at the office.</p>
-            </div>
+          <div class="forge-step"><div class="forge-step-num">1</div><div class="forge-step-content"><h4>Arrive with the problem</h4><p>Your team of 2–6 arrives with a defined strategic challenge — a roadmap, an architecture decision, a scaling question that won't resolve back at the office.</p></div></div>
+          <div class="forge-step"><div class="forge-step-num">2</div><div class="forge-step-content"><h4>Work alongside the experts</h4><p>Over 3–5 days, your team works in close collaboration with The Clearing's resident experts — structured sessions, open working time, and clarity that only comes from deep focus in a beautiful place.</p></div></div>
+          <div class="forge-step"><div class="forge-step-num">3</div><div class="forge-step-content"><h4>Leave with the plan</h4><p>You depart with a documented strategic roadmap, engineering specifications, and design direction — ready to hand to your team and begin building immediately.</p></div></div>
+          <div class="forge-step"><div class="forge-step-num">4</div><div class="forge-step-content"><h4>All lodging & meals included</h4><p>Private cabin accommodation and communal dining are included for all Forge participants throughout the engagement.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SPARK -->
+<section class="spark" id="spark">
+  <div class="container">
+    <div class="spark-inner">
+      <div>
+        <!-- Spark logo lockup -->
+        <div class="sub-lockup on-dark" style="margin-bottom:2rem;">
+          <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+            <line x1="26" y1="4" x2="26" y2="10" stroke="#C4845A" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+            <line x1="26" y1="42" x2="26" y2="48" stroke="#C4845A" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+            <line x1="4" y1="26" x2="10" y2="26" stroke="#C4845A" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+            <line x1="42" y1="26" x2="48" y2="26" stroke="#C4845A" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+            <line x1="9" y1="9" x2="13" y2="13" stroke="#C4845A" stroke-width="0.75" stroke-linecap="round" opacity="0.45"/>
+            <line x1="43" y1="43" x2="39" y2="39" stroke="#C4845A" stroke-width="0.75" stroke-linecap="round" opacity="0.45"/>
+            <line x1="9" y1="43" x2="13" y2="39" stroke="#C4845A" stroke-width="0.75" stroke-linecap="round" opacity="0.45"/>
+            <path d="M26 13 L37 26 L26 39 L15 26 Z" fill="none" stroke="#F7F3EE" stroke-width="1.25" stroke-linejoin="round"/>
+            <path d="M26 18 L33 26 L26 34 L19 26 Z" fill="#C4845A" opacity="0.2"/>
+            <circle cx="26" cy="26" r="2.5" fill="#C4845A"/>
+            <circle cx="26" cy="26" r="1.2" fill="#F7F3EE"/>
+          </svg>
+          <div class="sub-lockup-stacked">
+            <span class="sub-lockup-the">The</span>
+            <span class="sub-lockup-name">Spark</span>
+            <span class="sub-lockup-tag">Focused Session · 2–4 Hours</span>
           </div>
-          <div class="forge-step">
-            <div class="forge-step-num">2</div>
-            <div class="forge-step-content">
-              <h4>Work alongside the experts</h4>
-              <p>Over 3–5 days, your team works in close collaboration with The Clearing's resident experts — structured sessions, open working time, and the clarity that only comes from deep focus in a beautiful place, with recognized experts.</p>
-            </div>
-          </div>
-          <div class="forge-step">
-            <div class="forge-step-num">3</div>
-            <div class="forge-step-content">
-              <h4>Leave with the plan</h4>
-              <p>You depart with a documented strategic roadmap, engineering specifications, and design direction — ready to hand to your team and begin implementing.</p>
-            </div>
-          </div>
-          <div class="forge-step">
-            <div class="forge-step-num">4</div>
-            <div class="forge-step-content">
-              <h4>All lodging & meals included</h4>
-              <p>Private cabin accommodation and communal dining are included for all Forge participants throughout the engagement.</p>
-            </div>
-          </div>
+        </div>
+        <h2>One problem.<br>One session.<br>Real clarity.</h2>
+        <p>The Spark is the entry point to The Clearing's expert methodology — a focused 2–4 hour working session for small teams who need to break through a specific decision, challenge, or bottleneck.</p>
+        <p>Not a workshop. Not a presentation. A working session alongside one of The Clearing's resident experts, designed to move you from stuck to clear in a single afternoon.</p>
+        <p>Available as a standalone engagement or as a precursor to a full Forge intensive. The Spark is the fastest way to experience what expert guidance in a world-class natural setting makes possible.</p>
+        <a href="#book" class="spark-cta">Book a Spark Session</a>
+      </div>
+      <div class="spark-card">
+        <span class="spark-card-label">What a Spark Session Covers</span>
+        <div class="spark-items">
+          <div class="spark-item"><div class="spark-item-dot"></div><div class="spark-item-text"><h4>Strategic Decision Clarity</h4><p>A single critical decision — build vs. buy, platform direction, team structure — worked through with expert facilitation.</p></div></div>
+          <div class="spark-item"><div class="spark-item-dot"></div><div class="spark-item-text"><h4>Problem Framing</h4><p>For teams who know something is wrong but haven't been able to name it precisely. The Spark surfaces the real problem.</p></div></div>
+          <div class="spark-item"><div class="spark-item-dot"></div><div class="spark-item-text"><h4>Roadmap Pressure-Test</h4><p>Bring your existing plan. Leave knowing what holds, what breaks, and what needs to change before you build.</p></div></div>
+          <div class="spark-item"><div class="spark-item-dot"></div><div class="spark-item-text"><h4>Pre-Forge Scoping</h4><p>Use a Spark session to define and scope the problem before committing to a full Forge engagement.</p></div></div>
         </div>
       </div>
     </div>
@@ -1393,7 +603,7 @@
 <!-- PHILOSOPHY -->
 <section class="philosophy">
   <div class="container-narrow">
-    <span class="section-eyebrow" style="color:rgba(247,243,238,0.6);text-align:center;display:block;">Why The Clearing Exists</span>
+    <span class="section-eyebrow" style="color:rgba(247,243,238,0.55);text-align:center;display:block;">Why The Clearing Exists</span>
     <h2>"The most important conversations about technology happen best somewhere it hasn't arrived yet."</h2>
     <p>We live in a world of permanent connection — notifications, feeds, inboxes, pings. The quality of our thinking, our relationships, and our decisions suffers quietly for it. The Clearing exists on a different premise: that the natural world, shared meals, and the presence of other people in the same room are not retreats from productive work. They are the conditions that make breakthrough work possible.</p>
   </div>
@@ -1407,24 +617,24 @@
       <div class="about-body">
         <p>The Clearing began with a simple observation: the most important problems facing organizations today — how to build responsibly with data, how to scale technology without losing what's human, how to make good decisions in a world of infinite noise — are rarely solved in the environments where they're supposed to be solved.</p>
         <p>We built The Clearing as an answer to that. A network of destinations in places of <strong>world-class natural beauty</strong> — the high desert of New Mexico, the dramatic Pacific coastline of Big Sur, the ancient forests of the Blue Ridge — where the setting itself does some of the work. Where removal from the daily environment isn't an indulgence but a precondition for clear thinking.</p>
-        <p>Each location is designed to serve professional teams and groups seeking a different kind of productivity. Our Airstream fleet, private cabins, and group lodges accommodate every group configuration. Our on-site restaurant brings everyone to the same communal table. Our guided Experiences connect teams to each landscape and its people.</p>
-        <p>And for the teams who need more than a beautiful setting — <strong>The Forge</strong> offers something no other retreat venue provides: a permanent, resident team of recognized experts in data, technology, scaling, and security, ready to work alongside your team on the problems that matter most.</p>
+        <p>Each location serves professional teams and groups seeking a different kind of productivity. Our Airstream fleet, private cabins, and group lodges accommodate every configuration. Our on-site restaurant brings everyone to the same communal table. Our Body & Soul amenities — yoga studio, gym, and Zen gardens — ground the body so the mind can do its best work. Our guided Experiences connect teams to each landscape and its people.</p>
+        <p>And for the teams who need more than a beautiful setting — <strong>The Forge</strong> and <strong>The Spark</strong> offer something no other retreat venue provides: a permanent, resident team of recognized experts in data, technology, scaling, and security, ready to work alongside your team on the problems that matter most.</p>
         <p>The Clearing is built on the conviction that <strong>technology and human life are not in opposition</strong> — but that understanding how to hold them together requires stepping back from both. That's what we're here for.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BOOKING CTA -->
+<!-- BOOKING -->
 <section class="booking" id="book">
   <div class="container-narrow">
-    <span class="section-eyebrow">Ready</span>
+    <span class="section-eyebrow" style="color:var(--sage-light);display:block;text-align:center;">Ready</span>
     <h2>Find your clearing.</h2>
-    <p>Whether you're planning a team retreat, a Forge engagement, or a personal escape into somewhere extraordinary — we'd love to help you find the right fit.</p>
+    <p>Whether you're planning a team retreat, a Forge engagement, a Spark session, or a personal escape into somewhere extraordinary — we'd love to help you find the right fit.</p>
     <div class="booking-actions">
       <a href="#" class="btn-cream">Book a Stay</a>
       <a href="#" class="btn-ghost">Inquire for Groups & Retreats</a>
-      <a href="#forge" class="btn-ghost">Learn About The Forge</a>
+      <a href="#forge" class="btn-ghost">The Forge & The Spark</a>
     </div>
   </div>
 </section>
@@ -1433,7 +643,20 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="#" class="nav-logo">The Clearing</a>
+      <div class="sub-lockup on-dark">
+        <svg width="32" height="32" viewBox="0 0 52 52" fill="none">
+          <line x1="26" y1="4" x2="26" y2="14" stroke="#A8B89A" stroke-width="1" stroke-linecap="round"/>
+          <line x1="26" y1="4" x2="20" y2="12" stroke="#A8B89A" stroke-width="0.75" stroke-linecap="round" opacity="0.6"/>
+          <line x1="26" y1="4" x2="32" y2="12" stroke="#A8B89A" stroke-width="0.75" stroke-linecap="round" opacity="0.6"/>
+          <path d="M8 40 L14 22 L20 40Z" fill="none" stroke="#F7F3EE" stroke-width="1.25" stroke-linejoin="round"/>
+          <path d="M32 40 L38 22 L44 40Z" fill="none" stroke="#F7F3EE" stroke-width="1.25" stroke-linejoin="round"/>
+          <line x1="4" y1="40" x2="48" y2="40" stroke="rgba(247,243,238,0.4)" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+        <div class="sub-lockup-stacked">
+          <span class="sub-lockup-the">The</span>
+          <span class="sub-lockup-name">Clearing</span>
+        </div>
+      </div>
       <p>A network of world-class natural retreat destinations where professional teams come to unplug, gather, and do their clearest thinking.</p>
     </div>
     <div class="footer-col">
@@ -1450,6 +673,7 @@
         <li><a href="#">Stay & Explore</a></li>
         <li><a href="#">Retreat & Groups</a></li>
         <li><a href="#">The Forge</a></li>
+        <li><a href="#">The Spark</a></li>
         <li><a href="#">Experiences</a></li>
         <li><a href="#">Dining</a></li>
       </ul>
@@ -1465,7 +689,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 The Clearing. All rights reserved.</span>
+    <span>© 2025 The Clearing. All rights reserved.</span>
     <span>Unplug to Connect</span>
   </div>
 </footer>
